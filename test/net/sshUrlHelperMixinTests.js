@@ -68,14 +68,14 @@ test('ssh:net:sshUrlHelperMixin:startSshSessionUrl:arg', t => {
 
 test('ssh:net:sshUrlHelperMixin:startSshSessionUrl:prop', t => {
 	const helper = new SshUrlHelper();
-	helper.sshSession = new SshSession('abc');
+	helper.sshSession = new SshSession(new Date(), 'abc');
 	t.is(helper.startSshSessionUrl(), 
 		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/abc/start');
 });
 
 test('ssh:net:sshUrlHelperMixin:startSshSessionUrl:argOverridesProp', t => {
 	const helper = new SshUrlHelper();
-	helper.sshSession = new SshSession('abc');
+	helper.sshSession = new SshSession(new Date(), 'abc');
 	t.is(helper.startSshSessionUrl('def'), 
 		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/def/start');
 });
@@ -108,14 +108,14 @@ test('ssh:net:sshUrlHelperMixin:httpProxyUrl:arg', t => {
 
 test('ssh:net:sshUrlHelperMixin:httpProxyUrl:prop', t => {
 	const helper = new SshUrlHelper();
-	helper.sshSession = new SshSession('abc');
+	helper.sshSession = new SshSession(new Date(), 'abc');
 	t.is(helper.httpProxyUrl(), 
 		'https://ssh.solarnetwork.net:8443/nodeproxy/abc/');
 });
 
 test('ssh:net:sshUrlHelperMixin:httpProxyUrl:argOverridesProp', t => {
 	const helper = new SshUrlHelper();
-	helper.sshSession = new SshSession('abc');
+	helper.sshSession = new SshSession(new Date(), 'abc');
 	t.is(helper.httpProxyUrl('def'), 
 		'https://ssh.solarnetwork.net:8443/nodeproxy/def/');
 });
@@ -134,14 +134,14 @@ test('ssh:net:sshUrlHelperMixin:stopSshSessionUrl:arg', t => {
 
 test('ssh:net:sshUrlHelperMixin:stopSshSessionUrl:prop', t => {
 	const helper = new SshUrlHelper();
-	helper.sshSession = new SshSession('abc');
+	helper.sshSession = new SshSession(new Date(), 'abc');
 	t.is(helper.stopSshSessionUrl(), 
 		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/abc/stop');
 });
 
 test('ssh:net:sshUrlHelperMixin:stopSshSessionUrl:argOverridesProp', t => {
 	const helper = new SshUrlHelper();
-	helper.sshSession = new SshSession('abc');
+	helper.sshSession = new SshSession(new Date(), 'abc');
 	t.is(helper.stopSshSessionUrl('def'), 
 		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/def/stop');
 });
