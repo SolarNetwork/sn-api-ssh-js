@@ -119,3 +119,29 @@ test('ssh:net:sshUrlHelperMixin:httpProxyUrl:argOverridesProp', t => {
 	t.is(helper.httpProxyUrl('def'), 
 		'https://ssh.solarnetwork.net:8443/nodeproxy/def/');
 });
+
+test('ssh:net:sshUrlHelperMixin:stopSshSessionUrl:empty', t => {
+	const helper = new SshUrlHelper();
+	t.is(helper.stopSshSessionUrl(), 
+		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/undefined/stop');
+});
+
+test('ssh:net:sshUrlHelperMixin:stopSshSessionUrl:arg', t => {
+	const helper = new SshUrlHelper();
+	t.is(helper.stopSshSessionUrl('abc'), 
+		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/abc/stop');
+});
+
+test('ssh:net:sshUrlHelperMixin:stopSshSessionUrl:prop', t => {
+	const helper = new SshUrlHelper();
+	helper.sshSession = new SshSession('abc');
+	t.is(helper.stopSshSessionUrl(), 
+		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/abc/stop');
+});
+
+test('ssh:net:sshUrlHelperMixin:stopSshSessionUrl:argOverridesProp', t => {
+	const helper = new SshUrlHelper();
+	helper.sshSession = new SshSession('abc');
+	t.is(helper.stopSshSessionUrl('def'), 
+		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/def/stop');
+});

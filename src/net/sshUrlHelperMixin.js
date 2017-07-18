@@ -128,12 +128,23 @@ class extends superclass {
     /**
      * Generate a URL for starting a SolarSSH session.
      * 
-     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:sshUrlHelperMixin~mixin#sshSessionId} value will be used
+     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:net/sshUrlHelperMixin~mixin#sshSessionId} value will be used
      * @returns {string} the URL
      */
     startSshSessionUrl(sessionId) {
         const sessId = (sessionId || this.sshSessionId);
         return this.baseUrl() + '/ssh/session/' +encodeURIComponent(sessId) +'/start';
+    }
+
+    /**
+     * Generate a URL for stopping a SolarSSH session.
+     * 
+     * @param {string} [sessionId] the {@link module:domain/sshSession~SshSession} ID to use; if not provided the {@link module:net/sshUrlHelperMixin~mixin#sshSessionId} value will be used
+     * @returns {string} the URL
+     */
+    stopSshSessionUrl(sessionId) {
+        const sessId = (sessionId || this.sshSessionId);
+        return this.baseUrl() + '/ssh/session/' +encodeURIComponent(sessId) +'/stop';
     }
 };
 
