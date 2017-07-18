@@ -1,3 +1,5 @@
+/** @module net/sshUrlHelperMixin */
+
 import { Environment } from 'solarnetwork-api-core';
 
 /** The SolarSsh default path. */
@@ -18,9 +20,9 @@ export const SshSessionKey = 'sshSession';
 /**
  * Create a SshUrlHelperMixin class.
  *
- * @exports sshUrlHelperMixin
+ * @exports net/sshUrlHelperMixin
  * @param {UrlHelper} superclass the UrlHelper class to mix onto
- * @return {module:sshUrlHelperMixin~mixin} the mixin class
+ * @return {module:net/sshUrlHelperMixin~mixin} the mixin class
  */
 const SshUrlHelperMixin = (superclass) => 
 
@@ -28,7 +30,7 @@ const SshUrlHelperMixin = (superclass) =>
  * A mixin class that adds SolarSsh specific support to {@link UrlHelper}.
  * 
  * @mixin
- * @alias module:sshUrlHelperMixin~mixin
+ * @alias module:net/sshUrlHelperMixin~mixin
  */
 class extends superclass {
 
@@ -66,7 +68,7 @@ class extends superclass {
     }
 
     /**
-     * Shortcut for getting the SSH session ID from the {@link SshUrlHelperMixin#session} property.
+     * Shortcut for getting the SSH session ID from the {@link module:domain/sshSession~SshSession#session} property.
      * 
      * @alias SshSession#sessionId
      * @readonly
@@ -103,7 +105,7 @@ class extends superclass {
     /**
      * Get the URL to the SolarSSH HTTP proxy to the configured SolarNode.
      * 
-     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:sshUrlHelperMixin~mixin#sshSessionId} value will be used
+     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:net/sshUrlHelperMixin~mixin#sshSessionId} value will be used
      * @returns {string} the HTTP proxy URL
      */
     httpProxyUrl(sessionId) {
