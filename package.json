@@ -95,6 +95,6 @@
     "uglify-es": "^3.0.25"
   },
   "dependencies": {
-    "solarnetwork-api-core": "SolarNetwork/sn-api-core-js#develop"
+    "solarnetwork-api-core": "0.3"
   }
 }
