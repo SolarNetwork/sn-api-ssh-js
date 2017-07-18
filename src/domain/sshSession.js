@@ -43,7 +43,7 @@ class SshSession {
             result['sessionId'] = this.sessionId;
         }
         if ( this.created ) {
-            result['created'] = this.created;
+            result['created'] = this.created.getTime();
         }
         if ( this.nodeId ) {
             result['nodeId'] = this.nodeId;
