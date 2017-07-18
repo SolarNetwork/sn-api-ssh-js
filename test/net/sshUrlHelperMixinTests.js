@@ -1,13 +1,7 @@
 import test from 'ava';
 
-import { UrlHelper, NodeUrlHelperMixin } from 'solarnetwork-api-core';
 import SshSession from 'domain/sshSession';
-import { default as SshUrlHelperMixin, 
-    SolarSshPathKey } from 'net/sshUrlHelperMixin';
-
-class SshUrlHelper extends SshUrlHelperMixin(NodeUrlHelperMixin(UrlHelper)) {
-
-}
+import { SshUrlHelper,  SolarSshPathKey } from 'net/sshUrlHelperMixin';
 
 test('ssh:net:sshUrlHelperMixin:create', t => {
 	const helper = new SshUrlHelper();

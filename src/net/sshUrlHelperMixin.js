@@ -1,6 +1,6 @@
 /** @module net */
 
-import { Environment } from 'solarnetwork-api-core';
+import { Environment, UrlHelper, NodeUrlHelperMixin } from 'solarnetwork-api-core';
 
 /** The SolarSsh default path. */
 export const SolarSshDefaultPath = '';
@@ -151,4 +151,16 @@ class extends superclass {
     }
 };
 
+/**
+ * A concrete {@link UrlHelper} with the {@link module:net~SshUrlHelperMixin} and
+ * {@link NodeUrlHelperMixin} mixins.
+ * 
+ * @mixes SshUrlHelperMixin
+ * @mixes NodeUrlHelperMixin
+ * @extends UrlHelper
+ */
+class SshUrlHelper extends SshUrlHelperMixin(NodeUrlHelperMixin(UrlHelper)) {
+}
+
 export default SshUrlHelperMixin;
+export { SshUrlHelper };
