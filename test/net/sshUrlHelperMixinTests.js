@@ -80,9 +80,26 @@ test('ssh:net:sshUrlHelperMixin:startSshSessionUrl:argOverridesProp', t => {
 		'https://ssh.solarnetwork.net:8443/api/v1/ssh/session/def/start');
 });
 
-test('ssh:net:sshUrlHelperMixin:terminalWebSocketUrl', t => {
+test('ssh:net:sshUrlHelperMixin:terminalWebSocketUrl:empty', t => {
 	const helper = new SshUrlHelper();
-	t.is(helper.terminalWebSocketUrl(), 'wss://ssh.solarnetwork.net:8443/ssh');
+	t.is(helper.terminalWebSocketUrl(), 'wss://ssh.solarnetwork.net:8443/ssh?sessionId=undefined');
+});
+
+test('ssh:net:sshUrlHelperMixin:terminalWebSocketUrl:arg', t => {
+	const helper = new SshUrlHelper();
+	t.is(helper.terminalWebSocketUrl('abc'), 'wss://ssh.solarnetwork.net:8443/ssh?sessionId=abc');
+});
+
+test('ssh:net:sshUrlHelperMixin:terminalWebSocketUrl:prop', t => {
+	const helper = new SshUrlHelper();
+	helper.sshSession = new SshSession(new Date(), 'abc');
+	t.is(helper.terminalWebSocketUrl(), 'wss://ssh.solarnetwork.net:8443/ssh?sessionId=abc');
+});
+
+test('ssh:net:sshUrlHelperMixin:terminalWebSocketUrl:argOverridesProp', t => {
+	const helper = new SshUrlHelper();
+	helper.sshSession = new SshSession(new Date(), 'abc');
+	t.is(helper.terminalWebSocketUrl('def'), 'wss://ssh.solarnetwork.net:8443/ssh?sessionId=def');
 });
 
 test('ssh:net:sshUrlHelperMixin:terminalWebSocketUrl:customEnvironment', t => {
@@ -91,7 +108,7 @@ test('ssh:net:sshUrlHelperMixin:terminalWebSocketUrl:customEnvironment', t => {
 	env['protocol'] = 'http';
     env['host'] = 'ssh.example.com';
 	const helper = new SshUrlHelper(env);
-	t.is(helper.terminalWebSocketUrl(), 'ws://ssh.example.com/foossh/ssh');
+	t.is(helper.terminalWebSocketUrl('abc'), 'ws://ssh.example.com/foossh/ssh?sessionId=abc');
 });
 
 test('ssh:net:sshUrlHelperMixin:httpProxyUrl:empty', t => {

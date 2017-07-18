@@ -95,11 +95,14 @@ class extends superclass {
     /**
      * Get the URL to the SolarSSH WebSocket termainl connection to the configured SolarNode.
      * 
+     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:net~SshUrlHelperMixin#sshSessionId} value will be used
      * @returns {string} the WebSocket terminal URL
      */
-    terminalWebSocketUrl() {
+    terminalWebSocketUrl(sessionId) {
 		const path = this.env(SolarSshPathKey) || SolarSshDefaultPath;
-		return this.hostWebSocketUrl() + path + SolarSshTerminalWebSocketPath;
+        const sessId = (sessionId || this.sshSessionId);
+        return this.hostWebSocketUrl() + path + SolarSshTerminalWebSocketPath
+            +'?sessionId=' +encodeURIComponent(sessId);
     }
     
     /**
