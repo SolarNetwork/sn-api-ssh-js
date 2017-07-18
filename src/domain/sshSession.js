@@ -1,4 +1,4 @@
-/** @module domain/sshSession */
+/** @module domain */
 
 /**
  * A SolarSSH session object.

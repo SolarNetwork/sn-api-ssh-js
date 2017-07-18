@@ -5,7 +5,7 @@ import { ComparableEnum } from 'solarnetwork-api-core';
 /**
  * A named socket close code.
  */
-export class SshCloseCode extends ComparableEnum {
+class SshCloseCode extends ComparableEnum {
 
     /**
      * Constructor.
@@ -45,3 +45,4 @@ const SshCloseCodeValues = Object.freeze([
 const SshCloseCodes = SshCloseCode.enumsValue(SshCloseCodeValues);
 
 export default SshCloseCodes;
+export { SshCloseCode };

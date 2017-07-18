@@ -1,4 +1,4 @@
-/** @module net/sshUrlHelperMixin */
+/** @module net */
 
 import { Environment } from 'solarnetwork-api-core';
 
@@ -20,9 +20,9 @@ export const SshSessionKey = 'sshSession';
 /**
  * Create a SshUrlHelperMixin class.
  *
- * @exports net/sshUrlHelperMixin
+ * @exports net
  * @param {UrlHelper} superclass the UrlHelper class to mix onto
- * @return {module:net/sshUrlHelperMixin~mixin} the mixin class
+ * @return {module:net~SshUrlHelperMixin} the mixin class
  */
 const SshUrlHelperMixin = (superclass) => 
 
@@ -30,7 +30,7 @@ const SshUrlHelperMixin = (superclass) =>
  * A mixin class that adds SolarSsh specific support to {@link UrlHelper}.
  * 
  * @mixin
- * @alias module:net/sshUrlHelperMixin~mixin
+ * @alias module:net~SshUrlHelperMixin
  */
 class extends superclass {
 
@@ -68,7 +68,7 @@ class extends superclass {
     }
 
     /**
-     * Shortcut for getting the SSH session ID from the {@link module:domain/sshSession~SshSession#session} property.
+     * Shortcut for getting the SSH session ID from the {@link module:domain~SshSession#session} property.
      * 
      * @alias SshSession#sessionId
      * @readonly
@@ -105,7 +105,7 @@ class extends superclass {
     /**
      * Get the URL to the SolarSSH HTTP proxy to the configured SolarNode.
      * 
-     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:net/sshUrlHelperMixin~mixin#sshSessionId} value will be used
+     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:net~SshUrlHelperMixin#sshSessionId} value will be used
      * @returns {string} the HTTP proxy URL
      */
     httpProxyUrl(sessionId) {
@@ -128,7 +128,7 @@ class extends superclass {
     /**
      * Generate a URL for starting a SolarSSH session.
      * 
-     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:net/sshUrlHelperMixin~mixin#sshSessionId} value will be used
+     * @param {string} [sessionId] the {@link SshSession} ID to use; if not provided the {@link module:net~SshUrlHelperMixin#sshSessionId} value will be used
      * @returns {string} the URL
      */
     startSshSessionUrl(sessionId) {
@@ -139,7 +139,7 @@ class extends superclass {
     /**
      * Generate a URL for stopping a SolarSSH session.
      * 
-     * @param {string} [sessionId] the {@link module:domain/sshSession~SshSession} ID to use; if not provided the {@link module:net/sshUrlHelperMixin~mixin#sshSessionId} value will be used
+     * @param {string} [sessionId] the {@link module:domain/sshSession~SshSession} ID to use; if not provided the {@link module:net~SshUrlHelperMixin#sshSessionId} value will be used
      * @returns {string} the URL
      */
     stopSshSessionUrl(sessionId) {
