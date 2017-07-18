@@ -72,13 +72,13 @@ class SshSession {
      * 
      * The JSON must be encoded the same way {@link module:domain~SshSession#toJsonEncoding} does.
      * 
-     * @param {string} json the JSON to parse
+     * @param {string|Object} json the JSON to parse, or a parsed JSON object
      * @returns {module:domain~SshSession} the session instance 
      */
     static fromJsonEncoding(json) {
         const args = [];
         if ( json ) {
-            const obj = JSON.parse(json);
+            const obj = (typeof json === 'string' ? JSON.parse(json) : json);
             if ( obj.created ) {
                 args.push(new Date(obj.created));
             } else {

@@ -1,6 +1,6 @@
 {
   "name": "solarnetwork-api-ssh",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "SolarNetwork SSH API",
   "keywords": [
     "solarnetwork"
@@ -11,10 +11,11 @@
     "name": "Matt Magoffin",
     "email": "matt@solarnetwork.net"
   },
-  "main": "dist/solarnetwork-api-ssh.js",
-  "module": "src/index",
-  "jsnext:main": "src/index",
+  "main": "lib/solarnetwork-api-ssh.js",
+  "module": "lib/solarnetwork-api-ssh.es.js",
+  "jsnext:main": "lib/solarnetwork-api-ssh.es.js",
   "files": [
+    "lib.js",
     "lib",
     "src"
   ],
@@ -51,9 +52,27 @@
     "prebuild": "eslint lib.js src",
     "build": "rm -rf build && mkdir build && rollup --banner \"$(preamble)\" -c -f umd -n sn -m -o lib/solarnetwork-api-ssh.js -- lib.js && rollup --banner \"$(preamble)\" -c -f es -m -o lib/solarnetwork-api-ssh.es.js -- lib.js",
     "postbuild": "./node_modules/uglify-es/bin/uglifyjs --preamble \"$(preamble)\" lib/solarnetwork-api-ssh.js --source-map content=lib/solarnetwork-api-ssh.js.map,filename=lib/solarnetwork-api-ssh.min.js.map -c -m -o lib/solarnetwork-api-ssh.min.js && ./node_modules/uglify-es/bin/uglifyjs --preamble \"$(preamble)\" lib/solarnetwork-api-ssh.es.js --source-map content=lib/solarnetwork-api-ssh.es.js.map,filename=lib/solarnetwork-api-ssh.es.min.js.map -c -m -o lib/solarnetwork-api-ssh.es.min.js",
-    "prepublish": "npm run test && npm run build",
     "test": "ava",
-    "coverage": "nyc --reporter=html ./node_modules/.bin/ava"
+    "coverage": "nyc --reporter=html ./node_modules/.bin/ava",
+    "release": "generate-release"
+  },
+  "config": {
+    "generateRelease": {
+      "no_confirm": false,
+      "remote": "origin",
+      "pre_commit_commands": [
+        "npm run build"
+      ],
+      "post_commit_commands": [
+        "npm test"
+      ],
+      "post_complete_commands": [
+        "npm publish"
+      ],
+      "files_to_commit": [
+        "./lib/*"
+      ]
+    }
   },
   "devDependencies": {
     "ava": "^0.20.0",
@@ -63,6 +82,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.24.1",
     "eslint": "3",
+    "generate-release": "^0.13.0",
     "global-object": "^1.0.0",
     "ink-docstrap": "^1.3.0",
     "istanbul": "^0.4.5",
@@ -75,6 +95,6 @@
     "uglify-es": "^3.0.25"
   },
   "dependencies": {
-    "solarnetwork-api-core": "SolarNetwork/sn-api-core-js#develop"
+    "solarnetwork-api-core": "0.3"
   }
 }
