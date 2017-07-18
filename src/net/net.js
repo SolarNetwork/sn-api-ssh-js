@@ -3,6 +3,7 @@ export { default as SshUrlHelperMixin,
     SolarSshPathKey,
     SolarSshApiPathV1,
     SolarSshTerminalWebSocketPath,
+    SolarSshTerminalWebSocketSubProtocol,
     SshSessionKey,
     SshUrlHelper
     } from './sshUrlHelperMixin';

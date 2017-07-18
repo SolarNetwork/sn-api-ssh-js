@@ -14,6 +14,9 @@ export const SolarSshApiPathV1 = '/api/v1';
 /** The SolarSsh WebSocket path for a terminal connection. */
 export const SolarSshTerminalWebSocketPath = '/ssh';
 
+/** The sub-protocol to use for SolarSSH WebSocket connections. */
+export const SolarSshTerminalWebSocketSubProtocol = 'solarssh';
+
 /** An {@link UrlHelper} parameter key for a {@link SshSession} instance. */
 export const SshSessionKey = 'sshSession';
 
