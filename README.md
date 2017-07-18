@@ -71,4 +71,4 @@ That will produce a HTML code coverage report at `coverage/index.html`.
 
   [npm]: https://www.npmjs.com/
   [yarn]: https://yarnpkg.com/
-  [solarnet-api]: https://github.com/SolarNetwork/solarnetwork/wiki/API-Developer-Guide
+  [solarssh-api]: https://github.com/SolarNetwork/solarnetwork/wiki/SolarSSH-API
