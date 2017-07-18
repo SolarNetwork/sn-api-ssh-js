@@ -32,7 +32,7 @@ class SshCommand {
             result['cmd'] = this.command;
         }
         const data = this.data;
-        if ( data.toJsonEncoding ) {
+        if ( data && data.toJsonEncoding ) {
             const dataJson = data.toJsonEncoding();
             result['data'] = JSON.parse(dataJson);
         } else if ( data ) {
