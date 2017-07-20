@@ -1,6 +1,6 @@
 {
   "name": "solarnetwork-api-ssh",
-  "version": "0.2.1",
+  "version": "0.2.2-dev.0",
   "description": "SolarNetwork SSH API",
   "keywords": [
     "solarnetwork"
@@ -89,6 +89,7 @@
     "ink-docstrap": "^1.3.0",
     "istanbul": "^0.4.5",
     "jsdoc": "^3.5.3",
+    "npmversion": "^1.4.0",
     "nyc": "^11.0.3",
     "package-preamble": "0.1",
     "rollup": "0.43",
