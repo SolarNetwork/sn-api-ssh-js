@@ -1,6 +1,6 @@
 {
   "name": "solarnetwork-api-ssh",
-  "version": "0.2.2-dev.0",
+  "version": "0.2.2",
   "description": "SolarNetwork SSH API",
   "keywords": [
     "solarnetwork"
