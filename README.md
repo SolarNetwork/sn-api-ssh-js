@@ -1,5 +1,9 @@
 # SolarNetwork SSH API - JavaScript
 
+> :warning: This project has been integrated into the
+> [SolarNetwork/sn-api-core-js](https://github.com/SolarNetwork/sn-api-core-js)
+> repo. No further changes will be made here.
+
 This project contains JavaScript code to help access [SolarSSH][solarssh-api].
 
 # Building
